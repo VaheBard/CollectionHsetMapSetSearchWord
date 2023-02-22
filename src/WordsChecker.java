@@ -1,22 +1,22 @@
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class WordsChecker {
-    String textForCheck;
+    private String textForCheck;
+    private Set<String> textSet;
 
     public WordsChecker(String textForCheck) {
         this.textForCheck = textForCheck;
+        this.textSet = new HashSet<>(List.of(textForCheck.split("\\P{IsAlphabetic}+")));
     }
 
     protected boolean hasWord(String word) {
-        ArrayList<String> list = new ArrayList<>(List.of(textForCheck.split("\\P{IsAlphabetic}+")));
-        for (String s : list) {
-            if (s.equals(word)) {
+            if (textSet.contains(word)) {
                 System.out.println("Слово " + "'" + word + "'" + " есть в этом тексте!");
                 return true;
-            }
         }
-        System.out.println("Слово " + "'" + word + "'" + " есть в этом тексте!");
+        System.out.println("Слово " + "'" + word + "'" + " НЕТ в этом тексте!");
         return false;
     }
 }

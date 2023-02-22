@@ -2,6 +2,8 @@ public class Main {
     public static void main(String[] args) {
         WordsChecker wordsChecker = new WordsChecker(text);
         wordsChecker.hasWord("dolor");
+        wordsChecker.hasWord("sfsf");
+        wordsChecker.hasWord("nulla");
     }
 
     static String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
